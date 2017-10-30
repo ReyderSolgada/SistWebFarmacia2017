@@ -30,7 +30,7 @@
 				<br>
 				<div class="input-group">
 					<span class="input-group-addon" id="sizing-addon2"><img
-						src="img/icon/lock-locked.svg"></span> <input type="text"
+						src="img/icon/lock-locked.svg"></span> <input type="password"
 						class="form-control" placeholder="Contraseña"
 						aria-label="Contraseña" aria-describedby="sizing-addon2">
 				</div>

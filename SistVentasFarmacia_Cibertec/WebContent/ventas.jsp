@@ -1,5 +1,15 @@
+<%@page import="beans.EmpleadoDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%
+	EmpleadoDTO empleado = null;
+	if(session.getAttribute("usuario")!=null){
+		empleado = (EmpleadoDTO) session.getAttribute("usuario");
+	}else{
+		response.sendRedirect("login.jsp");
+	}
+%>
 <!DOCTYPE>
 <html lang="ES">
 <head>

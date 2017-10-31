@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<%
+	String mensaje = "";
+	if(request.getAttribute("msg")!=null){
+		mensaje = (String) request.getAttribute("msg");
+	}
+%>
+
 <!DOCTYPE>
 <html lang="ES">
 <head>
@@ -16,7 +23,7 @@
 	<!--Container-->
 	<div class="container">
 		<div class="jumbotron">
-			<form class="form-signin">
+			<form class="form-signin" action="ServletEmpleado?tipo=login" method="post">
 				<h2 class="form-signin-heading text-center">
 					<img id="login-icon" src="img/color/users-2.svg">
 				</h2>
@@ -25,18 +32,25 @@
 					<span class="input-group-addon" id="sizing-addon2"><img
 						src="img/icon/account-login.svg"></span> <input type="text"
 						class="form-control" placeholder="Usuario" aria-label="Usuario"
-						aria-describedby="sizing-addon2">
+						aria-describedby="sizing-addon2" name="txtusuario" autofocus>
 				</div>
 				<br>
 				<div class="input-group">
 					<span class="input-group-addon" id="sizing-addon2"><img
 						src="img/icon/lock-locked.svg"></span> <input type="password"
 						class="form-control" placeholder="Contraseña"
-						aria-label="Contraseña" aria-describedby="sizing-addon2">
+						aria-label="Contraseña" aria-describedby="sizing-addon2" name="txtpassword">
 				</div>
 				<br>
 				<button class="btn btn-lg btn-success btn-block" type="submit">Iniciar</button>
 			</form>
+			<%
+				if(!mensaje.equals("")){
+					out.write("<div class='alert alert-danger'>");
+					out.write(mensaje);
+					out.write("</div>");
+				}
+			%>
 		</div>
 	</div>
 	<script src="js/jquery-3.2.1.slim.min.js"></script>

@@ -14,7 +14,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="login.jsp">Login<span
+				<li class="nav-item active"><a class="nav-link" href="empleados.jsp">Empleados<span
 						class="sr-only">(Actual)</span></a></li>
 				<li class="nav-item"><a class="nav-link" href="productos.jsp">Productos</a>
 				</li>
@@ -38,7 +38,7 @@
 				<div class="dropdown-menu">
 					<button class="dropdown-item" type="button">Cuenta</button>
 					<button class="dropdown-item" type="button">Configuraciones</button>
-					<button class="dropdown-item" type="button">Salir</button>
+					<a href="ServletEmpleado?tipo=cerrarSesion" class="dropdown-item">Salir</a>
 				</div>
 			</div>
 		</div>

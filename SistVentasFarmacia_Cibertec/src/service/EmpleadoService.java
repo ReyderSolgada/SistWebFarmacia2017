@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import beans.EmpleadoDTO;
 import dao.DAOFactory;
 import interfaces.EmpleadoDAO;
@@ -11,5 +13,9 @@ public class EmpleadoService {
 	
 	public EmpleadoDTO autentificacionEmpleado(String xuser, String xpass){
 		return objEmp.autentificacionEmpleado(xuser, xpass);
+	}
+	
+	public List<EmpleadoDTO> listaEmpleado(){
+		return objEmp.listaEmpleado();
 	}
 }

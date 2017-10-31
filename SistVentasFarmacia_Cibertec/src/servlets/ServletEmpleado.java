@@ -24,11 +24,20 @@ public class ServletEmpleado extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String xtipo = request.getParameter("tipo");
 		
+		System.out.println("TIPO: "+xtipo);
+		
 		if(xtipo.equals("login")){
 			loginSesion(request, response);
 		}else if(xtipo.equals("cerrarSesion")){
 			cerrarSesion(request, response);
+		}else if(xtipo.equals("listar")){
+			listarEmpleado(request, response);
 		}
+	}
+
+	private void listarEmpleado(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("dataEmp", servEmp.listaEmpleado());
+		request.getRequestDispatcher("empleados.jsp").forward(request, response);
 	}
 
 	private void cerrarSesion(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -22,7 +22,7 @@
 					</li>
 					<li class="<% out.print(item.equals("ventas")?"nav-item active":"nav-item");%>"><a class="nav-link" href="ventas.jsp">Lista Ventas</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="factura.jsp">Nueva Venta</a>
+					<li class="<% out.print(item.equals("nueva venta")?"nav-item active":"nav-item");%>"><a class="nav-link" href="factura.jsp">Nueva Venta</a>
 					</li>
 					<li class="<% out.print(item.equals("clientes")?"nav-item active":"nav-item");%>"><a class="nav-link" href="clientes.jsp">Clientes</a>
 					</li>

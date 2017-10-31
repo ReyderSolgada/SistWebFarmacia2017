@@ -1,6 +1,28 @@
+<%@page import="beans.EmpleadoDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE>
+	
+<%
+	EmpleadoDTO empleado = null;
+	if(session.getAttribute("usuario")!=null){
+		empleado = (EmpleadoDTO) session.getAttribute("usuario");
+	}else{
+		response.sendRedirect("login.jsp");
+	}
+%>
+
+<!-- Encabezado -->
+<jsp:include page="WEB-INF/head.jsp">
+	<jsp:param value="Productos" name="title"/>
+</jsp:include>
+
+<!-- Menu -->
+<jsp:include page="WEB-INF/menu-navegacion.jsp">
+	<jsp:param value="productos" name="item"/>
+</jsp:include>
+
+	
+<%-- <!DOCTYPE>
 <html lang="ES">
 <head>
 <%@ include file="meta.jsp"%>
@@ -11,7 +33,7 @@
 </head>
 <body>
 	<!--Header-->
-	<%@ include file="header.jsp"%>
+	<%@ include file="header.jsp"%> --%>
 	<!--Contenedor-->
 	<div class="container">
 		<br>
@@ -280,8 +302,12 @@
 			</ul>
 		</nav>
 	</div>
-	<script src="js/jquery-3.2.1.slim.min.js"></script>
+	
+<!-- Pie de página -->	
+<%@include file="WEB-INF/footer.jsp" %>
+	
+<!-- 	<script src="js/jquery-3.2.1.slim.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>
-</html>
+</html> -->

@@ -10,7 +10,18 @@
 		response.sendRedirect("login.jsp");
 	}
 %>
-<!DOCTYPE>
+
+<!-- Encabezado -->
+<jsp:include page="WEB-INF/head.jsp">
+	<jsp:param value="Ventas" name="title"/>
+</jsp:include>
+
+<!-- Menú -->
+<jsp:include page="WEB-INF/menu-navegacion.jsp">
+	<jsp:param value="ventas" name="item"/>
+</jsp:include>
+
+<%-- <!DOCTYPE>
 <html lang="ES">
 <head>
 <%@ include file="meta.jsp"%>
@@ -21,7 +32,7 @@
 </head>
 <body>
 	<!--Header-->
-	<%@ include file="header.jsp"%>
+	<%@ include file="header.jsp"%> --%>
 	<!--Container-fluid-->
 	<div class="container-fluid">
 		<div class="row">
@@ -214,8 +225,11 @@
 			</main>
 		</div>
 	</div>
-	<script src="js/jquery-3.2.1.slim.min.js"></script>
+
+<!-- Pie de página -->
+<%@include file="WEB-INF/footer.jsp" %>
+<!-- 	<script src="js/jquery-3.2.1.slim.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>
-</html>
+</html> -->

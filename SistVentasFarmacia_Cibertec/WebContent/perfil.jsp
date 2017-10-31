@@ -1,20 +1,30 @@
+<%@page import="beans.EmpleadoDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE>
-<html>
-<head>
-<%@ include file="meta.jsp"%>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/extras.css">
-<link rel="icon" type="image/png" href="img/icon.png" />
-<title>Perfil</title>
-</head>
-<body>
-	<!--Header-->
-	<%@ include file="header.jsp"%>
+    pageEncoding="UTF-8"%>
+
+<%
+	EmpleadoDTO empleado = null;
+	if(session.getAttribute("usuario")!=null){
+		empleado = (EmpleadoDTO) session.getAttribute("usuario");
+	}else{
+		response.sendRedirect("login.jsp");
+	}
+%>
+<!-- Encabezado -->
+<jsp:include page="WEB-INF/head.jsp">
+	<jsp:param value="Empleados" name="title"/>
+</jsp:include>
+
+<!-- Menú -->
+<jsp:include page="WEB-INF/menu-navegacion.jsp">
+	<jsp:param value="empleados" name="item"/>
+</jsp:include>
+
 	<!--Container-->
 	<div class="container">
 		
-	</div>	
-</body>
-</html>
+	</div>
+		
+<!-- Pie de página -->
+<%@include file="WEB-INF/footer.jsp" %>

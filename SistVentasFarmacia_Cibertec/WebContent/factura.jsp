@@ -1,17 +1,30 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="beans.EmpleadoDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<%@ include file="meta.jsp"%>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/extras.css">
-<link rel="icon" type="image/png" href="img/icon.png" />
-<title>Factura</title>
-</head>
-<body>
-	<!--Header-->
-	<%@ include file="header.jsp"%>
+    pageEncoding="UTF-8"%>
+
+<%
+	EmpleadoDTO empleado = null;
+	if(session.getAttribute("usuario")!=null){
+		empleado = (EmpleadoDTO) session.getAttribute("usuario");
+	}else{
+		response.sendRedirect("login.jsp");
+	}
+%>
+
+<!-- Encabezado -->
+<jsp:include page="WEB-INF/head.jsp">
+	<jsp:param value="Nueva Venta" name="title"/>
+</jsp:include>
+
+<!-- Menú -->
+<jsp:include page="WEB-INF/menu-navegacion.jsp">
+	<jsp:param value="nueva venta" name="item"/>
+</jsp:include>
+
+	<!--Body-->
+	
 	<div class="container mt-3">
 		<div class="row">
 			<div class="col">
@@ -67,5 +80,6 @@
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+	
+<!-- Pie de página -->
+<%@include file="WEB-INF/footer.jsp" %>

@@ -1,5 +1,6 @@
 package dao;
 
+import interfaces.ClientesDAO;
 import interfaces.EmpleadoDAO;
 
 public abstract class DAOFactory {
@@ -10,6 +11,7 @@ public abstract class DAOFactory {
 	public static final int XML = 5;
 	
 	public abstract EmpleadoDAO getEmpleado();
+	public abstract ClientesDAO getCliente();
 	
 	public static DAOFactory getDAOFactory(int whichFactory) {
 		switch (whichFactory) {

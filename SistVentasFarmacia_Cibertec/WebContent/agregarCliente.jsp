@@ -26,7 +26,7 @@
 					<input name="txtFecRegistro" class="dp-fecha form-control" type="text"
 						placeholder="fecha">
 					<label>Sexo</label>
-					<select name="cboSexo" class="col">
+					<select name="cboSexo" class="col form-control">
 						<option value="M">Masculino</option>
 						<option value="F">Femenino</option>
 					</select>

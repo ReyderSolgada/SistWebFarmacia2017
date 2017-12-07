@@ -7,13 +7,14 @@
 		</div>
 	</footer>
 	<!-- End footer -->
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>	
 	<script src="js/jquery.bootstrap-growl.min.js"></script>
 	<Script src="js/bootstrap-datetimepicker.js"></Script>
 	<script src="js/bootstrap-datetimepicker.es.js"></script>	
 	<script src="js/mantenimientoCliente.js"></script>
+	<script src="js/mantenimientoProducto.js"></script>
 	<script src="js/alertas.js"></script>
 	
 </body>

@@ -58,6 +58,13 @@ public class ServletEmpleado extends HttpServlet {
 		if(obj != null){
 			HttpSession sesion = request.getSession();
 			sesion.setAttribute("usuario", obj);
+			if(obj.getIdCargo()==2)
+			request.getRequestDispatcher("ventas.jsp").forward(request, response);
+			else if(obj.getIdCargo()==1)
+			request.getRequestDispatcher("realizarPago.jsp").forward(request, response);
+			else if(obj.getIdCargo()==4)
+			request.getRequestDispatcher("productos.jsp").forward(request, response);
+			else if(obj.getIdCargo()==3)
 			request.getRequestDispatcher("ventas.jsp").forward(request, response);
 		}else{
 			request.setAttribute("msg", "Usuario y/o contraseña incorrectos");

@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-	<!-- Inicio Modal eliminar Cliente --> 
-<form id="deletCliente" action="ServletCliente?tipo=eliminar" method="post">  
-<div class="modal fade" id="frm-eliminar-cliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<form id="deletProducto" action="ServletProducto?tipo=eliminar" method="post">  
+<div class="modal fade" id="frm-eliminar-producto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">  
     <div class="modal-content">
       <div class="modal-header">
@@ -13,20 +12,17 @@
         </button>
       </div>
       <div class="modal-body">  
-      		<input type="hidden" name="txteliminarId" id="txteliminarId" form="deletCliente" class="form-control">      		
+      		<input type="hidden" name="txtcodPro" id="txtcodPro" form="deletProducto">      		
       		<div class="alert alert-danger" role="alert">
-      		¿Estas seguro de eliminar a <label id="nomCliente"></label> de forma permanente?
+      		Desea Eliminar al producto <label id="nomPro"></label> de forma permanente?
       		</div>
       		
       </div>
       <div class="modal-footer">
-        <button id="btn-eliminar" type="submit" class="btn btn-danger" form="deletCliente">Eliminar</button>
+        <button id="btn-eliminar" type="submit" class="btn btn-danger" form="deletProducto">Eliminar</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>        
       </div>
     </div>
   </div>
 </div>
 </form>
-
-	<!-- Fin Modal eliminar Cliente -->
-    

@@ -1,313 +1,85 @@
-<%@page import="beans.EmpleadoDTO"%>
+<%@ page import="beans.ProductoDTO"%>
+<%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-<%
-	EmpleadoDTO empleado = null;
-	if(session.getAttribute("usuario")!=null){
-		empleado = (EmpleadoDTO) session.getAttribute("usuario");
-	}else{
-		response.sendRedirect("login.jsp");
-	}
-%>
-
 <!-- Encabezado -->
 <jsp:include page="WEB-INF/head.jsp">
-	<jsp:param value="Productos" name="title"/>
+	<jsp:param value="Productos" name="title" />
 </jsp:include>
-
-<!-- Menu -->
+<!-- Menú -->
 <jsp:include page="WEB-INF/menu-navegacion.jsp">
-	<jsp:param value="productos" name="item"/>
+	<jsp:param value="productos" name="item" />
 </jsp:include>
-
-	
-<%-- <!DOCTYPE>
-<html lang="ES">
-<head>
-<%@ include file="meta.jsp"%>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/extras.css">
-<link rel="icon" type="image/png" href="img/icon.png" />
-<title>Productos</title>
-</head>
-<body>
-	<!--Header-->
-	<%@ include file="header.jsp"%> --%>
 	<!--Contenedor-->
 	<div class="container">
+	<jsp:include page="registrarProducto.jsp"></jsp:include>
+	<jsp:include page="editarProducto.jsp"></jsp:include>
+	<jsp:include page="eliminarProducto.jsp"></jsp:include>
 		<br>
-		<nav class="navbar navbar-light float-right">
-			<form class="form-inline">
-				<input class="form-control" type="text" placeholder="Buscar"
-					aria-label="Search">
-				<button class="btn btn-outline-success" type="submit">Buscar</button>
-			</form>
-		</nav>
+	<div class="row">
+	<div class="col-md-2">
+		<button type="button" class="btn btn-success" data-toggle="modal" 
+		data-target="#frm-agregar-producto" onclick="cargarCombos()"><img src="svg/si-glyph-plus.svg" width="16px" height="16px"> Agregar</button>
+	</div>
+		<div class="col-md-10">
+			<nav class="navbar navbar-light float-right">
+				<form class="form-inline" action="ServletProducto?tipo=buscarPorNombre" method="post">
+					<input name="txtnomProducto" class="form-control" type="text" placeholder="Buscar"
+						aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Buscar</button>
+				</form>
+			</nav>
+		</div>		
+	</div>
 		<br>
 		<table class="table table-bordered table-hover">
 			<thead>
 				<tr>
-					<th>#</th>
 					<th>Código</th>
 					<th>Nombre</th>
-					<th>Descripción</th>
 					<th>Precio</th>
 					<th>Stock</th>
+					<th>Categoria</th>
+					<th>Laboratorio</th>
+					<th colspan="2">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>P0001</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>P0002</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td>P0003</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>P0004</td>
-					<td>Test Nombre</td>
-					<td>Test Desc</td>
-					<td>Test Precio</td>
-					<td>Test Stock</td>
-				</tr>
+				<%
+					ArrayList<ProductoDTO> lista = (ArrayList<ProductoDTO>) request.getAttribute("data");
+
+					if (lista != null) {
+						for (ProductoDTO xProd : lista) {
+							out.println("<tr>");
+							out.println("<td>" + xProd.getCod_prod() + "</td>");
+							out.println("<td>" + xProd.getNom_prod() + "</td>");
+							out.println("<td>S/. " + xProd.getPre_prod() + "</td>");
+							out.println("<td>" + xProd.getStk_prod() + "</td>");
+							out.println("<td>" + xProd.getNom_cat() + "</td>");
+							out.println("<td>" + xProd.getNom_lab()+ "</td>");
+							out.println("<td align='center'><a href='#' data-toggle='modal' data-target='#frm-editar-producto'"
+										+" onclick=\"cargarProducto(\'"+xProd.getCod_prod()+"\', \'"+xProd.getNom_prod()+"\', \'"+xProd.getPre_prod()+"\', \'"
+										+xProd.getStk_prod()+"\', \'"+xProd.getCod_cat()+"\', \'"+xProd.getCod_lab()+"\')\" id='editar'>"
+							+ "<img src='img/file.svg' title='Editar'></a></td>");
+							out.println("<td align='center'><a href='#' data-toggle='modal' data-target='#frm-eliminar-producto'"
+										+"  onclick=\"eliminarProducto(\'"+xProd.getCod_prod()+"\', \'"+xProd.getNom_prod()+"\')\" id='eliminar'>" 
+										+ "<img src='img/error2.svg' title='Eliminar'></a></td>");
+							out.println("</tr>");
+						}
+					}
+				%>
 			</tbody>
 		</table>
 		<nav aria-label="Page navigation example">
 			<ul class="pagination justify-content-center">
 				<li class="page-item disabled"><a class="page-link" href="#"
-					tabindex="-1">Previous</a></li>
+					tabindex="-1">Anterior</a></li>
 				<li class="page-item"><a class="page-link" href="#">1</a></li>
 				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item"><a class="page-link" href="#">Next</a></li>
+				<li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
 			</ul>
 		</nav>
 	</div>
 	
-<!-- Pie de página -->	
-<%@include file="WEB-INF/footer.jsp" %>
-	
-<!-- 	<script src="js/jquery-3.2.1.slim.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-</body>
-</html> -->
+<!-- Pie de página -->
+<%@include file="WEB-INF/footer.jsp"%>

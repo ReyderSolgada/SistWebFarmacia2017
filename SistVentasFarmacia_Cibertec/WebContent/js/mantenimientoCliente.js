@@ -9,8 +9,12 @@ cargarCliente=function(id,nom,apepater,apemater,dni,fecReg,sexo){
 	$('#txtSexo').val(sexo);
 };
 eliminarCliente=function(cod,nombre){
+	limpiarCliente();
 	$('#txteliminarId').val(cod);
-	$('#txteliminarNom').val(nombre);
+	$('#nomCliente').append('<a class="alert-link"> '+nombre+' </a>');
+	function limpiarCliente(){
+		$('#nomCliente a').remove();
+	}
 };
 
 //Funcion Fecha

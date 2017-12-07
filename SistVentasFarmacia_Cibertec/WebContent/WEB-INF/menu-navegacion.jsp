@@ -30,7 +30,8 @@
 				<ul class="navbar-nav mr-auto">
 					<li class="<% out.print(item.equals("empleados")?"nav-item active":"nav-item");%>"><a class="nav-link"
 						href="ServletEmpleado?tipo=listar">Empleados<span class="sr-only">(Actual)</span></a></li>
-					<li class="<% out.print(item.equals("productos")?"nav-item active":"nav-item");%>"><a class="nav-link" href="productos.jsp">Productos</a>
+					<li class="<% out.print(item.equals("productos")?"nav-item active":"nav-item");%>"><a class="nav-link" 
+					href="ServletProducto?tipo=listar">Productos</a>
 					</li>
 					<li class="<% out.print(item.equals("ventas")?"nav-item active":"nav-item");%>"><a class="nav-link" href="ventas.jsp">Lista Ventas</a>
 					</li>
@@ -57,7 +58,8 @@
 				<%}else if(empleado.getIdCargo()==4){
 				%>
 				<ul class="navbar-nav mr-auto">
-					<li class="<% out.print(item.equals("productos")?"nav-item active":"nav-item");%>"><a class="nav-link" href="productos.jsp">Productos</a>
+					<li class="<% out.print(item.equals("productos")?"nav-item active":"nav-item");%>"><a class="nav-link" 
+					href="ServletProducto?tipo=listar">Productos</a>
 					</li>
 				</ul>
 				<%}else if(empleado.getIdCargo()==2){

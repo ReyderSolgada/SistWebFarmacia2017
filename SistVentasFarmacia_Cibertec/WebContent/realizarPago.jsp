@@ -51,7 +51,8 @@
 			<input  class="form-control"  type="text" aria-label="Search">
 		</div>
 		<div class="col-md-4">
-			<label>Fecha Pago:</label>		
+			<label>Fecha Pago:</label>
+			<input type="text" class="form-control dp-fecha" name="txtFecha">		
 		</div>
 		
 	</div>

@@ -38,6 +38,17 @@ public class MysqlClienteDAO implements ClientesDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstm != null)
+					pstm.close();
+				if (cn != null)
+					cn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
 		}
 		return data;
 	}
@@ -202,6 +213,17 @@ public class MysqlClienteDAO implements ClientesDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstm != null)
+					pstm.close();
+				if (cn != null)
+					cn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
 		}
 		return data;
 	}

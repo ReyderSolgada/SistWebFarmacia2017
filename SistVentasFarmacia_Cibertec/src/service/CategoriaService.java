@@ -17,5 +17,8 @@ public class CategoriaService {
 	public CategoriaDTO buscaCategoria(int cod){
 		return objC.buscarCategoria(cod);
 	}
+	public int registrarCategoria(CategoriaDTO obj){
+		return objC.registrarCategoria(obj);
+	}
 
 }

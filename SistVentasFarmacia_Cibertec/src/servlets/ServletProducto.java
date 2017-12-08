@@ -49,7 +49,29 @@ public class ServletProducto extends HttpServlet {
 			listarLaboratorio(request, response);
 		else if (xtipo.equals("buscarPorNombre"))
 			buscarPorNombre(request, response);
+		else if (xtipo.equals("registrarLaboratorio"))
+			registrarLaboratorio(request, response);
+		else if (xtipo.equals("registrarCategoria"))
+			registrarCategoria(request, response);
 		
+	}
+
+	private void registrarCategoria(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nom = request.getParameter("txtCategoria");
+		CategoriaDTO obj = new CategoriaDTO();
+		obj.setNom_cat(nom);
+		
+		serviCat.registrarCategoria(obj);
+		listar(request, response);
+	}
+
+	private void registrarLaboratorio(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nombre = request.getParameter("txtLaboratorio");
+		LaboratorioDTO obj = new LaboratorioDTO();
+		obj.setNom_lab(nombre);
+		
+		serviLab.registrarLaboratorio(obj);
+		listar(request, response);
 	}
 
 	private void buscarPorNombre(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

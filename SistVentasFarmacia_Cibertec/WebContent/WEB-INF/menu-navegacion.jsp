@@ -43,7 +43,7 @@
 					<li class="<% out.print(item.equals("realizarPago")?"nav-item active":"nav-item");%>"><a class="nav-link" 
 					href="realizarPago.jsp">Realizar Pago</a>
 					</li>
-					<li class="<% out.print(item.equals("reportes")?"nav-item active":"nav-item");%>"><a class="nav-link" href="reportes.jsp">Reportes</a>
+					<li class="<% out.print(item.equals("reportes")?"nav-item active":"nav-item");%>"><a class="nav-link" href="ServletReportes?tipo=listarVendedor">Reportes</a>
 					</li>
 				</ul>
 				<%}else if(empleado.getIdCargo()==1){

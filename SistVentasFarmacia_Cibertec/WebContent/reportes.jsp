@@ -1,3 +1,5 @@
+<%@ page import="beans.ReportesDTO"%>
+<%@ page import="java.util.ArrayList"%>
 <%@page import="beans.EmpleadoDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -38,29 +40,56 @@
 						<th>
 							<select name="cboVendedor">
 								<option>Seleccione Vendedor</option>
+					<%
+					ArrayList<ReportesDTO> lista = (ArrayList<ReportesDTO>) request.getAttribute("Vendedor");
+						if(lista!=null){
+							for(ReportesDTO repor : lista){
+					%>
+						<option value="<%=repor.getIdEmpleado()%>"><%=repor.getNombreEmpleado() %></option>
+					<%}} %>
 							</select>
 						</th>
-						<th><button class="btn btn-info">Venta General</button></th>
-						<th>Inventario:</th>
-						<th><button class="btn btn-success">Inventario</button></th>
+						<th>
+						
+						<button class="btn btn-info">Ventas/Vendedor</button>
+						
+						</th>
+						<th>
+						<form action="ServletReportes?tipo=ventaGeneral">
+						<button class="btn btn-success">Venta General</button>
+						</form>
+						</th>
 					</tr>
 				</table>
 				<br><br>
 				<table class="table table-bordered table-hover table-striped">
-					<tr>
-						<th>CodVendedor</th>
-						<th>Nombres</th>
-						<th>IdOrdenVenta</th>
-						<th>Descripción</th>
-						<th>PrecioVenta</th>						
-					</tr>
-					<tr>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
-					</tr>
+					<%
+					ArrayList<ReportesDTO> ventaG = (ArrayList<ReportesDTO>)request.getAttribute("VentaGeneral");
+						if(ventaG!=null){
+							out.println("<tr>");
+							out.println("<th>IdOrdenVenta</th>");
+							out.println("<th>FechaOrden</th>");
+							out.println("<th>NombreCliente</th>");
+							out.println("<th>NombreEmpleado</th>");
+							out.println("<th><th>IdProducto</th>");
+							out.println("<th>Descripcion</th>");
+							out.println("<th>Cantidad</th>");
+							out.println("<th>Monto</th>");
+							out.println("</tr>");
+							for(ReportesDTO r : ventaG){
+								out.println("<tr>");
+								out.println("<td>" + r.getIdOrdenVenta() + "</td>");
+								out.println("<td>" + r.getFechaOrden() + "</td>");
+								out.println("<td>" + r.getNombreCliente() + "</td>");
+								out.println("<td>" + r.getNombreEmpleado()+ "</td>");
+								out.println("<td>" + r.getIdProducto() + "</td>");
+								out.println("<td>" + r.getNombreProducto()+ "</td>");
+								out.println("<td>" + r.getCantidad() + "</td>");
+								out.println("<td> S/. " + r.getMonto()+ "</td>");
+								out.println("</tr>");
+							}
+						}
+					%>
 				</table>
 			</div>
 			<div class="col-md-1"></div>
@@ -70,14 +99,14 @@
 				<label>Desde:</label>
 					<div class="form-group">
 					<div class="input-group date" >
-						<input type="text"  class="dp-fecha form-control" name="">
+						<input type="text"  class="dp-fecha form-control" name="txtFechaInicio">
 						<span class="input-group-addon"><img src="svg/si-glyph-calendar-3.svg" width="16px" height="16px"></span>
 					</div>
 				</div>
 				<label>Hasta:</label>
 					<div class="form-group">
 						<div class="input-group date" >
-						<input type="text"  class="dp-fecha form-control" name="">
+						<input type="text"  class="dp-fecha form-control" name="txtFechaFin">
 						<span class="input-group-addon"><img src="svg/si-glyph-calendar-3.svg" width="16px" height="16px"></span>
 					</div>
 			</div>	

@@ -1,10 +1,13 @@
 package dao;
 
+import beans.ReportesDTO;
 import interfaces.CategoriaDAO;
 import interfaces.ClientesDAO;
 import interfaces.EmpleadoDAO;
 import interfaces.LaboratorioDAO;
 import interfaces.ProductoDAO;
+import interfaces.RealizarPagoDAO;
+import interfaces.ReportesDAO;
 
 public abstract class DAOFactory {
 	public static final int MYSQL = 1;
@@ -18,6 +21,8 @@ public abstract class DAOFactory {
 	public abstract ProductoDAO getProducto();
 	public abstract EmpleadoDAO getEmpleado();
 	public abstract ClientesDAO getCliente();
+	public abstract RealizarPagoDAO getRealizarPago();
+	public abstract ReportesDAO getReportes();
 	
 	public static DAOFactory getDAOFactory(int whichFactory) {
 		switch (whichFactory) {

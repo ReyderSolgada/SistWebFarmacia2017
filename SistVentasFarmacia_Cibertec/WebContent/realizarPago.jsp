@@ -74,6 +74,7 @@
 						fecha="";
 				%>
 				value="<%=fecha%>">
+				<input type="hidden" class="form-control dp-fecha" name="txtFechaPago" form="frm-pagar" value="<%=fecha%>">
 		</div>
 
 	</div>

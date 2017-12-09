@@ -23,7 +23,7 @@ public class ServletRealizarPago extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int IdordenVenta=Integer.parseInt(request.getParameter("IdOrdenVenta"));
-		String fechaPago=request.getParameter("txtFecha");
+		String fechaPago=request.getParameter("txtFechaPago");
 		int estado =2;
 		System.out.println(estado);
 		RealizarPagoDTO obj = new RealizarPagoDTO();

@@ -44,9 +44,10 @@ public class ServletReportes extends HttpServlet {
 		
 	}
 	private void ventaGeneral(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Estamos en el servlet");
 		String fInicio = request.getParameter("txtFechaInicio");
 		String fFin = request.getParameter("txtFechaFin");
-		System.out.println(fInicio);
+		System.out.println("FechaInicio: "+fInicio);
 		System.out.println(fFin);
 		request.setAttribute("VentaGeneral", serviRepor.ventaGeneral(fInicio, fFin));
 		request.getRequestDispatcher("reportes.jsp").forward(request, response);
